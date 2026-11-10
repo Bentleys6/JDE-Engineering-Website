@@ -18,7 +18,7 @@ import { Footer, Header, useRouteEffects } from "@/components/site/Layout";
 
 function NotFoundComponent() {
   return (
-    <section className="hero-glow">
+    <section className="hero-brand">
       <div className="container-site flex min-h-[60vh] flex-col items-start justify-center py-20">
         <p className="eyebrow text-accent">Error 404</p>
         <h1 className="mt-4 text-4xl md:text-6xl">Sorry, that page doesn't exist.</h1>

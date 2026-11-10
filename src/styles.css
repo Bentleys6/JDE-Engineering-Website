@@ -190,11 +190,37 @@
   }
 }
 
-/* Soft glow from the top right of hero sections. Decorative only. */
-@utility hero-glow {
-  background:
-    radial-gradient(70% 90% at 85% 0%, var(--navy-glow) 0%, transparent 60%),
-    linear-gradient(180deg, #070b22 0%, var(--navy) 100%);
+/*
+ * Page headers: deep navy with JDE's logo mark drawn large and faint, cropped off the right edge.
+ * Brand-owned depth instead of a generic glow. Decorative only.
+ */
+@utility hero-brand {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #070b22 0%, var(--navy) 100%);
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    right: -32%;
+    top: 4%;
+    width: 95%;
+    aspect-ratio: 1;
+    background: url("/images/jde-mark.svg") no-repeat center / contain;
+    opacity: 0.045;
+    pointer-events: none;
+    @media (min-width: 768px) {
+      right: -9%;
+      top: 50%;
+      width: auto;
+      height: 135%;
+      transform: translateY(-50%);
+    }
+  }
 }
 
 /* Gentle top-to-bottom depth for alternate navy sections. */

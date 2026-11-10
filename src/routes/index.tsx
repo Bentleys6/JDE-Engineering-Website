@@ -22,7 +22,7 @@ function Home() {
   return (
     <>
       {/* Hero: type-led, no cover photo. */}
-      <section className="hero-glow border-b border-line">
+      <section className="hero-brand border-b border-line">
         <div className="container-site grid gap-12 pb-16 pt-14 md:pb-24 md:pt-24 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-16">
           <div>
             <p className="eyebrow text-accent">Specialist engineering consultancy</p>
@@ -44,7 +44,7 @@ function Home() {
           </div>
 
           {/* Capability panel: the eight service areas, set like a spec sheet. */}
-          <div className="card-navy overflow-hidden backdrop-blur">
+          <div className="overflow-hidden rounded-[10px] border border-line bg-navy-raised/90 backdrop-blur">
             <p className="eyebrow border-b border-line px-5 py-4 text-on-navy-muted">
               Capabilities
             </p>
