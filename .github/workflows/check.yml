@@ -1,0 +1,61 @@
+# Runs on every push and pull request. A red ✗ on GitHub means don't merge to main.
+# On pushes to main it also deploys the site to Cloudflare once every check has passed.
+name: Check site
+
+on:
+  push:
+  pull_request:
+  schedule:
+    # Weekly security scan, so new vulnerabilities show up even when nobody is changing the site.
+    - cron: "17 6 * * 1"
+
+permissions:
+  contents: read
+
+# One run at a time per branch, so two quick pushes to main can't deploy out of order.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install packages
+        run: bun install --frozen-lockfile
+      - name: Lint
+        run: npm run lint
+      - name: Type check
+        run: npm run typecheck
+      - name: Build
+        run: npm run build
+      - name: Tests and security scan
+        run: npm test
+      - name: Security scan (packages that reach visitors)
+        run: bun audit --prod
+      - name: Security scan (build tools, report only)
+        run: bun audit || true
+      - name: Deploy to Cloudflare (main only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 2ce1e67ce02857e056b33cadf5461ab4
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice::No CLOUDFLARE_API_TOKEN secret yet, so this run doesn't deploy."
+            exit 0
+          fi
+          # --name keeps it on the existing Worker (the build's own default name differs).
+          # Retries cover Cloudflare's short "please wait" rate limits.
+          for attempt in 1 2 3; do
+            npx --yes wrangler@4.149.0 deploy --name jde-engineering-website && exit 0
+            echo "Deploy attempt $attempt failed; waiting 30 seconds before retrying."
+            sleep 30
+          done
+          exit 1
