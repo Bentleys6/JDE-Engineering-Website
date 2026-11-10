@@ -16,7 +16,7 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <section className="grid-lines border-b border-line">
+    <section className="hero-glow border-b border-line">
       <div className="container-site pb-16 pt-14 md:pb-24 md:pt-24">
         <p className="eyebrow text-accent">{eyebrow}</p>
         <h1 className="mt-5 max-w-4xl text-[2.4rem] md:text-6xl">{title}</h1>
@@ -67,7 +67,7 @@ export function ContactBand({
           <p className="mt-4 text-lg text-on-navy-muted">{text}</p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <a href={`mailto:${business.email}`} className="btn btn-accent">
+          <a href={`mailto:${business.email}`} className="btn btn-primary">
             <MailIcon className="h-4 w-4" /> {business.email}
           </a>
           <Link to="/contact" className="btn btn-outline-light">

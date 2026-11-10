@@ -18,7 +18,7 @@ import { Footer, Header, useRouteEffects } from "@/components/site/Layout";
 
 function NotFoundComponent() {
   return (
-    <section className="grid-lines">
+    <section className="hero-glow">
       <div className="container-site flex min-h-[60vh] flex-col items-start justify-center py-20">
         <p className="eyebrow text-accent">Error 404</p>
         <h1 className="mt-4 text-4xl md:text-6xl">Sorry, that page doesn't exist.</h1>
@@ -29,7 +29,7 @@ function NotFoundComponent() {
           </a>
           .
         </p>
-        <Link to="/" className="btn btn-accent mt-8">
+        <Link to="/" className="btn btn-primary mt-8">
           Back to the homepage
         </Link>
       </div>
@@ -52,7 +52,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
               router.invalidate();
               reset();
             }}
-            className="btn btn-accent"
+            className="btn btn-primary"
           >
             Try again
           </button>
@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#0E0849" },
+      { name: "theme-color", content: "#050818" },
       { property: "og:site_name", content: business.name },
       { property: "og:locale", content: "en_GB" },
     ],
@@ -109,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap",
       },
     ],
     scripts: [

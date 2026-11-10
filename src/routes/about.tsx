@@ -35,7 +35,7 @@ function AboutPage() {
       {/* Story */}
       <section className="on-paper section-pad">
         <div className="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <SectionHeading light label="01 / Who we are" title="Our story" />
+          <SectionHeading light label="Who we are" title="Our story" />
           <div className="space-y-5 text-lg text-ink-muted">
             <p className="text-xl text-ink">{business.summary}</p>
             <p>{business.focus}</p>
@@ -45,13 +45,13 @@ function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="section-pad">
+      <section className="navy-depth section-pad">
         <div className="container-site">
-          <SectionHeading label="02 / Values" title="How we work" />
-          <div className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading label="Values" title="How we work" />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
-              <div key={v.title} className="bg-navy p-6 md:p-7">
-                <span className="font-mono text-sm text-accent">
+              <div key={v.title} className="card-navy p-6 md:p-7">
+                <span className="text-sm font-medium tabular-nums text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 text-xl">{v.title}</h3>
@@ -65,10 +65,10 @@ function AboutPage() {
       {/* Leadership */}
       <section id="team" className="on-paper section-pad">
         <div className="container-site">
-          <SectionHeading light label="03 / People" title="Leadership team" />
+          <SectionHeading light label="People" title="Leadership team" />
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((m) => (
-              <li key={m.name} className="border border-border bg-white">
+              <li key={m.name} className="card-paper overflow-hidden">
                 {m.photo ? (
                   <img
                     src={m.photo}
@@ -80,7 +80,7 @@ function AboutPage() {
                   />
                 ) : (
                   <div
-                    className="flex aspect-[4/3] items-center justify-center bg-navy font-heading text-5xl font-bold text-white"
+                    className="flex aspect-[4/3] items-center justify-center bg-[radial-gradient(80%_100%_at_80%_0%,#15215e_0%,#050818_70%)] font-heading text-4xl font-medium tracking-wide text-white"
                     aria-hidden="true"
                   >
                     {initials(m.name)}

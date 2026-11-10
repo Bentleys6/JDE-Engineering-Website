@@ -34,7 +34,7 @@ function CareersPage() {
         title="Build your career with JDE"
         intro="We're always interested in hearing from experienced commissioning engineers, authorised persons, testing engineers and electrical safety professionals."
       >
-        <a href={applyHref("CV")} className="btn btn-accent mt-9">
+        <a href={applyHref("CV")} className="btn btn-primary mt-9">
           <MailIcon className="h-4 w-4" /> Send your CV
         </a>
       </PageHeader>
@@ -85,7 +85,7 @@ function CareersPage() {
               "We'll be in touch if your experience matches a current or upcoming project.",
             ].map((t, i) => (
               <li key={t} className="flex gap-5 border-b border-line pb-6">
-                <span className="font-mono text-sm text-accent">
+                <span className="text-sm font-medium tabular-nums text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-lg">{t}</span>

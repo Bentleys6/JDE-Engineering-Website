@@ -22,7 +22,7 @@ function Home() {
   return (
     <>
       {/* Hero: type-led, no cover photo. */}
-      <section className="grid-lines border-b border-line">
+      <section className="hero-glow border-b border-line">
         <div className="container-site grid gap-12 pb-16 pt-14 md:pb-24 md:pt-24 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-16">
           <div>
             <p className="eyebrow text-accent">Specialist engineering consultancy</p>
@@ -34,7 +34,7 @@ function Home() {
               facilities across the UK and Europe.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact" className="btn btn-accent">
+              <Link to="/contact" className="btn btn-primary">
                 Discuss your project <ArrowIcon className="h-4 w-4" />
               </Link>
               <Link to="/services" className="btn btn-outline-light">
@@ -44,7 +44,7 @@ function Home() {
           </div>
 
           {/* Capability panel: the eight service areas, set like a spec sheet. */}
-          <div className="border border-line bg-navy-deep/70">
+          <div className="card-navy overflow-hidden backdrop-blur">
             <p className="eyebrow border-b border-line px-5 py-4 text-on-navy-muted">
               Capabilities
             </p>
@@ -54,9 +54,9 @@ function Home() {
                   <Link
                     to="/services/$slug"
                     params={{ slug: s.slug }}
-                    className="group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-navy-raised"
+                    className="group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-white/5"
                   >
-                    <span className="font-mono text-sm text-accent">{pad(i)}</span>
+                    <span className="text-sm font-medium tabular-nums text-accent">{pad(i)}</span>
                     <span className="flex-1 font-medium">{s.short}</span>
                     <ArrowIcon className="h-4 w-4 text-on-navy-muted transition-transform group-hover:translate-x-1 group-hover:text-white" />
                   </Link>
@@ -69,7 +69,7 @@ function Home() {
 
       {/* Sectors */}
       <section className="border-b border-line">
-        <div className="container-site grid gap-px py-0 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="container-site grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
           {sectors.map((s) => (
             <div key={s.name} className="py-8 sm:pr-8 lg:py-12">
               <h2 className="text-xl">{s.name}</h2>
@@ -84,19 +84,19 @@ function Home() {
         <div className="container-site">
           <SectionHeading
             light
-            label="01 / Services"
+            label="Services"
             title="From strategy to handover"
             intro="Eight service areas, delivered on their own or as one team across the life of a project."
           />
-          <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s, i) => (
               <Link
                 key={s.slug}
                 to="/services/$slug"
                 params={{ slug: s.slug }}
-                className="group flex flex-col bg-paper p-6 transition-colors hover:bg-white md:p-7"
+                className="card-paper group flex flex-col p-6 transition-shadow hover:shadow-[0_12px_32px_-16px_rgb(10_15_44/0.35)] md:p-7"
               >
-                <span className="font-mono text-sm text-ink-muted">{pad(i)}</span>
+                <span className="text-sm font-medium tabular-nums text-ink-muted">{pad(i)}</span>
                 <h3 className="mt-6 text-xl">{s.name}</h3>
                 <p className="mt-3 flex-1 text-[0.97rem] text-ink-muted">{s.summary}</p>
                 <span className="link-arrow mt-6 text-[0.95rem]">
@@ -109,17 +109,17 @@ function Home() {
       </section>
 
       {/* Lifecycle */}
-      <section className="section-pad">
+      <section className="navy-depth section-pad">
         <div className="container-site">
           <SectionHeading
-            label="02 / How we support a project"
+            label="How we support a project"
             title="One partner across the project lifecycle"
             intro="JDE can join at any stage, or carry a project from early strategy through to final acceptance."
           />
-          <ol className="mt-12 grid gap-px border border-line bg-line md:grid-cols-5">
+          <ol className="mt-12 grid gap-4 md:grid-cols-5">
             {lifecycle.map((l) => (
-              <li key={l.step} className="bg-navy p-6">
-                <span className="font-mono text-sm text-accent">{l.step}</span>
+              <li key={l.step} className="card-navy p-6">
+                <span className="text-sm font-medium tabular-nums text-accent">{l.step}</span>
                 <h3 className="mt-4 text-lg">{l.title}</h3>
                 <p className="mt-2 text-[0.95rem] text-on-navy-muted">{l.text}</p>
               </li>
@@ -133,7 +133,7 @@ function Home() {
         <div className="container-site grid gap-12 lg:grid-cols-2 lg:gap-20">
           <SectionHeading
             light
-            label="03 / Where we work"
+            label="Where we work"
             title="UK and European delivery"
             intro={internationalDelivery}
           />
@@ -141,7 +141,7 @@ function Home() {
             {regions.map((r) => (
               <li
                 key={r}
-                className="flex items-center gap-3 border-b border-border py-4 font-heading text-lg font-bold sm:odd:pr-6"
+                className="flex items-center gap-3 border-b border-border py-4 font-heading text-lg font-medium sm:odd:pr-6"
               >
                 <span className="h-2 w-2 bg-accent" aria-hidden="true" />
                 {r}
@@ -155,7 +155,7 @@ function Home() {
       <section className="section-pad border-b border-line">
         <div className="container-site flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            label="04 / Careers"
+            label="Careers"
             title="Work with JDE"
             intro="We're always interested in hearing from experienced commissioning engineers, authorised persons and electrical safety professionals."
           />

@@ -38,7 +38,7 @@ function ServicesPage() {
               className="grid gap-6 border-b border-border py-12 last:border-b-0 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:py-16"
             >
               <div>
-                <span className="font-mono text-sm text-ink-muted">
+                <span className="text-sm font-medium tabular-nums text-ink-muted">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h2 className="mt-3 text-3xl md:text-4xl">{s.name}</h2>

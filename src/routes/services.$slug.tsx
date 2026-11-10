@@ -81,13 +81,13 @@ function ServicePage() {
       <section className="section-pad">
         <div className="container-site">
           <h2 className="eyebrow text-accent">Other services</h2>
-          <ul className="mt-6 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {others.map((o) => (
-              <li key={o.slug} className="bg-navy">
+              <li key={o.slug} className="card-navy overflow-hidden">
                 <Link
                   to="/services/$slug"
                   params={{ slug: o.slug }}
-                  className="group flex h-full items-center justify-between gap-4 p-5 font-medium transition-colors hover:bg-navy-raised"
+                  className="group flex h-full items-center justify-between gap-4 p-5 font-medium transition-colors hover:bg-white/5"
                 >
                   {o.short}
                   <ArrowIcon className="h-4 w-4 shrink-0 text-on-navy-muted transition-transform group-hover:translate-x-1 group-hover:text-white" />

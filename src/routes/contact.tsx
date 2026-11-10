@@ -46,12 +46,12 @@ function ContactPage() {
       <section className="on-paper section-pad">
         <div className="container-site grid gap-6 md:grid-cols-2">
           {cards.map((c) => (
-            <div key={c.label} className="flex flex-col border border-border bg-white p-6 md:p-8">
+            <div key={c.label} className="card-paper flex flex-col p-6 md:p-8">
               <h2 className="eyebrow text-ink-muted">{c.label}</h2>
               <p className="mt-4 flex-1 text-lg text-ink-muted">{c.text}</p>
               <a
                 href={`mailto:${c.email}`}
-                className="mt-6 inline-flex items-center gap-3 break-all font-heading text-xl font-bold text-ink hover:underline md:text-2xl"
+                className="mt-6 inline-flex items-center gap-3 break-all font-heading text-xl font-medium text-ink hover:underline md:text-2xl"
               >
                 <MailIcon className="h-6 w-6 shrink-0" /> {c.email}
               </a>

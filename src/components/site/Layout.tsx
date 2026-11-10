@@ -47,13 +47,13 @@ export function Header() {
                   Services <ChevronIcon dir="down" className="h-4 w-4" />
                 </Link>
                 <div className="invisible absolute left-0 top-full w-80 pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  <ul className="border border-line bg-navy-deep p-2 shadow-2xl">
+                  <ul className="rounded-[10px] border border-line bg-navy-raised p-2 shadow-2xl">
                     {services.map((s) => (
                       <li key={s.slug}>
                         <Link
                           to="/services/$slug"
                           params={{ slug: s.slug }}
-                          className="block px-3 py-2.5 text-[0.95rem] text-on-navy-muted hover:bg-navy-raised hover:text-white"
+                          className="block rounded-md px-3 py-2.5 text-[0.95rem] text-on-navy-muted hover:bg-white/5 hover:text-white"
                         >
                           {s.short}
                         </Link>
@@ -71,7 +71,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link to="/contact" className="btn btn-accent">
+          <Link to="/contact" className="btn btn-primary">
             Get in touch
           </Link>
         </div>
@@ -95,7 +95,7 @@ export function Header() {
           <ul className="container-site py-4">
             {nav.map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className="block py-2.5 font-heading text-2xl font-bold">
+                <Link to={n.to} className="block py-2.5 font-heading text-2xl font-medium">
                   {n.label}
                 </Link>
                 {n.to === "/services" && (
@@ -116,7 +116,7 @@ export function Header() {
               </li>
             ))}
             <li className="pb-2 pt-4">
-              <Link to="/contact" className="btn btn-accent w-full">
+              <Link to="/contact" className="btn btn-primary w-full">
                 Get in touch
               </Link>
             </li>

@@ -4,17 +4,16 @@
 
 /*
  * JDE Engineering design system.
- * Navy-led and restrained: brand navy #0E0849 (from the logo), white, and one accent,
- * the logo's cyan #1CB5E0, used flat and sparingly (never as a navy-to-blue fade).
- * Archivo for headings, IBM Plex Sans for text, IBM Plex Mono for small technical labels.
+ * Deep midnight navy, white, and one accent (the logo's cyan #1CB5E0) used sparingly for
+ * small details. Depth comes from soft tonal glows within the navy, never a navy-to-light-blue fade.
+ * Geist (Google Fonts, SIL Open Font License) for everything.
  */
 
 @theme inline {
-  --font-heading: "Archivo", system-ui, sans-serif;
-  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --radius-sm: 2px;
-  --radius-md: 4px;
+  --font-heading: "Geist", system-ui, sans-serif;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
   --color-background: var(--paper);
   --color-foreground: var(--ink);
   --color-navy: var(--navy);
@@ -32,19 +31,24 @@
 }
 
 :root {
-  --navy: #0e0849;
-  --navy-deep: #08052e;
-  --navy-raised: #18125f;
+  /* Page background: deep midnight navy. */
+  --navy: #050818;
+  /* Footer. */
+  --navy-deep: #03050f;
+  /* Cards and panels on navy. */
+  --navy-raised: #0c1233;
+  /* The glow colour in hero gradients. */
+  --navy-glow: #15215e;
   --accent: #1cb5e0;
   --accent-hover: #4cc6e8;
-  --paper: #f3f4f8;
-  --ink: #0e0849;
-  --ink-muted: #3b3d62;
+  --paper: #f4f5f8;
+  --ink: #0a0f2c;
+  --ink-muted: #474d6b;
   --on-navy: #ffffff;
-  --on-navy-muted: #c5c8e2;
+  --on-navy-muted: #aeb4cc;
   /* Hairlines: --border on paper, --line on navy. */
-  --border: #d5d7e4;
-  --line: rgb(255 255 255 / 0.14);
+  --border: #dfe1ea;
+  --line: rgb(255 255 255 / 0.09);
 }
 
 @layer base {
@@ -59,7 +63,7 @@
     color: var(--on-navy);
     font-family: var(--font-sans);
     font-size: 17px;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
   h1,
@@ -67,13 +71,12 @@
   h3,
   h4 {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
   h1 {
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
   }
   [id] {
     scroll-margin-top: 96px;
@@ -107,13 +110,13 @@
   color: var(--ink);
 }
 
-/* Small technical label, e.g. "01 / Services". */
+/* Small label above headings. */
 @utility eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
 }
 
 @utility btn {
@@ -125,9 +128,9 @@
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-sm);
   font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 0.97rem;
-  letter-spacing: 0.01em;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0;
   transition:
     background-color 200ms,
     color 200ms,
@@ -139,12 +142,12 @@
   }
 }
 
-/* Main call to action: accent on navy. */
-@utility btn-accent {
-  background: var(--accent);
-  color: var(--navy);
+/* Main call to action on navy: white. */
+@utility btn-primary {
+  background: #ffffff;
+  color: var(--ink);
   &:hover {
-    background: var(--accent-hover);
+    background: #e4e7f0;
   }
 }
 
@@ -153,12 +156,12 @@
   background: var(--navy);
   color: #ffffff;
   &:hover {
-    background: var(--navy-raised);
+    background: #141c45;
   }
 }
 
 @utility btn-outline-light {
-  border: 1px solid rgb(255 255 255 / 0.4);
+  border: 1px solid rgb(255 255 255 / 0.25);
   color: #ffffff;
   &:hover {
     border-color: #ffffff;
@@ -170,7 +173,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-weight: 600;
+  font-weight: 500;
   &:hover {
     text-decoration: underline;
     text-underline-offset: 5px;
@@ -187,12 +190,30 @@
   }
 }
 
-/* Faint engineering grid behind headers on navy. Decorative only. */
-@utility grid-lines {
-  background-image:
-    linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
-  background-size: 56px 56px;
+/* Soft glow from the top right of hero sections. Decorative only. */
+@utility hero-glow {
+  background:
+    radial-gradient(70% 90% at 85% 0%, var(--navy-glow) 0%, transparent 60%),
+    linear-gradient(180deg, #070b22 0%, var(--navy) 100%);
+}
+
+/* Gentle top-to-bottom depth for alternate navy sections. */
+@utility navy-depth {
+  background: linear-gradient(180deg, #080d27 0%, var(--navy) 100%);
+}
+
+/* Card on navy: slightly lighter surface with a hairline edge. */
+@utility card-navy {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.035) 0%, rgb(255 255 255 / 0.015) 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+/* Card on paper. */
+@utility card-paper {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 }
 
 /* Scroll reveal (src/lib/reveal.ts): below-the-fold content fades up as it comes into view. */

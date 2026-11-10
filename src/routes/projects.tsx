@@ -38,11 +38,7 @@ function ProjectsPage() {
           {caseStudies.length > 0 ? (
             <div className="grid gap-6 md:grid-cols-2">
               {caseStudies.map((c) => (
-                <article
-                  key={c.slug}
-                  id={c.slug}
-                  className="border border-border bg-white p-6 md:p-8"
-                >
+                <article key={c.slug} id={c.slug} className="card-paper p-6 md:p-8">
                   <p className="eyebrow text-ink-muted">
                     {[c.sector, c.location, c.siteCode].filter(Boolean).join(" · ")}
                   </p>
@@ -84,12 +80,12 @@ function ProjectsPage() {
         </div>
       </section>
 
-      <section className="section-pad">
+      <section className="navy-depth section-pad">
         <div className="container-site">
           <SectionHeading label="Sectors" title="Where our work takes us" />
-          <div className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {sectors.map((s) => (
-              <div key={s.name} className="bg-navy p-6 md:p-7">
+              <div key={s.name} className="card-navy p-6 md:p-7">
                 <h3 className="text-xl">{s.name}</h3>
                 <p className="mt-3 text-[0.97rem] text-on-navy-muted">{s.text}</p>
               </div>
