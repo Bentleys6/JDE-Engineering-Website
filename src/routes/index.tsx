@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { business, internationalDelivery, regions, sectors } from "@/data/business";
 import { services } from "@/data/services";
 import { lifecycle } from "@/data/content";
-import { ContactBand, SectionHeading } from "@/components/site/Blocks";
+import { EnquirySection, SectionHeading } from "@/components/site/Blocks";
 import { ArrowIcon } from "@/components/site/Icons";
 import { seo } from "@/lib/seo";
 
@@ -34,7 +34,7 @@ function Home() {
               facilities across the UK and Europe.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact" className="btn btn-primary">
+              <Link to="/" hash="enquiry" className="btn btn-primary">
                 Discuss your project <ArrowIcon className="h-4 w-4" />
               </Link>
               <Link to="/services" className="btn btn-outline-light">
@@ -165,7 +165,7 @@ function Home() {
         </div>
       </section>
 
-      <ContactBand />
+      <EnquirySection source="Homepage" eyebrow="Get in touch" />
     </>
   );
 }

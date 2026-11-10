@@ -42,6 +42,7 @@ Run these in order and report results in plain English. Fix what fails; ask befo
 ## 7. Go-live (domain move)
 
 - Domain email (MX/TXT) records copied into Cloudflare before switching nameservers.
+- Web3Forms key set and a real test enquiry received from the form.
 - `siteUrl`, sitemap.xml and robots.txt point at the live domain; submit the sitemap in Google Search Console.
 - Uptime monitor (e.g. UptimeRobot, free) on the homepage, alerting the site owner's agency email.
 
@@ -61,7 +62,7 @@ Go through every line each time and report ✅ / ➖ (not applicable, say why) /
 | 8   | XSS protection        | Automatic: no dangerouslySetInnerHTML/eval/innerHTML (security-scan test) + CSP header. JSON-LD only uses our own data.           |
 | 9   | SQL injection         | ➖ No database.                                                                                                                   |
 | 10  | Database rules (RLS)  | ➖ No database.                                                                                                                   |
-| 11  | Rate limiting / spam  | ➖ No forms. If one is added: honeypot field + Web3Forms filtering; Cloudflare Turnstile if spam arrives (ask first).             |
+| 11  | Rate limiting / spam  | Honeypot field + Web3Forms spam filtering. If spam arrives: add Cloudflare Turnstile (ask first).                                 |
 | 12  | Spend caps            | Cloudflare Workers free plan can't bill. Any paid API added later must have a spend cap set.                                      |
 | 13  | Secure file uploads   | ➖ No uploads (CVs go by email).                                                                                                  |
 | 14  | CSRF protection       | ➖ No logged-in actions. TanStack Start's CSRF middleware stays on in src/start.ts.                                               |

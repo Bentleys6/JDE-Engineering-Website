@@ -18,6 +18,7 @@ describe("App routing", () => {
     "/careers",
     "/contact",
     "/privacy-policy",
+    "/thank-you",
   ]) {
     it(`matches a page for ${p}`, () => {
       expect(router.matchRoutes(p).at(-1)?.routeId).not.toBe(rootRouteId);

@@ -5,6 +5,7 @@ import { services } from "@/data/services";
 import { images } from "@/data/images";
 import { ChevronIcon, CloseIcon, MailIcon, MenuIcon } from "./Icons";
 import { setupScrollReveal } from "@/lib/reveal";
+import { captureLeadSource } from "@/lib/lead-source";
 
 const nav = [
   { to: "/about", label: "About" },
@@ -71,7 +72,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link to="/contact" className="btn btn-primary">
+          <Link to="/contact" hash="enquiry" className="btn btn-primary">
             Get in touch
           </Link>
         </div>
@@ -116,7 +117,7 @@ export function Header() {
               </li>
             ))}
             <li className="pb-2 pt-4">
-              <Link to="/contact" className="btn btn-primary w-full">
+              <Link to="/contact" hash="enquiry" className="btn btn-primary w-full">
                 Get in touch
               </Link>
             </li>
@@ -230,6 +231,9 @@ export function Footer() {
 export function useRouteEffects() {
   const location = useLocation();
   const first = useRef(true);
+  useEffect(() => {
+    captureLeadSource();
+  }, []);
   useEffect(() => {
     const hash = location.hash;
     let stopReveal = () => {};

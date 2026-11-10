@@ -30,6 +30,9 @@ export const business = {
   siteUrl: "https://jdeengineering.com",
   // From Cloudflare dashboard > Web Analytics > Add a site. Cookie-free, so no consent needed.
   cloudflareAnalyticsToken: "",
+  // Web3Forms access keys (web3forms.com, free). client = JDE's own account (enquiries to info@),
+  // agency = optional copy to the agency. Until client is set, the form says it isn't switched on.
+  formKeys: { client: "", agency: "" },
 };
 
 export const pageTitle = (page: string) => `${page} | ${business.name}`;

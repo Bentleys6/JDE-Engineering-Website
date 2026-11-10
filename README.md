@@ -6,7 +6,7 @@ Website for JDE Engineering Services Ltd: commissioning, electrical safe systems
 
 - TanStack Start (React, server-rendered) with Tailwind CSS
 - Builds to a Cloudflare Worker (`.output/`, via Nitro's `cloudflare-module` preset)
-- No forms, database or backend. Contact is by email.
+- One enquiry form, posting to Web3Forms from the browser. No database or backend.
 
 All content (business details, services, team, values, case studies, job roles) lives in `src/data/`. See `AGENTS.md` for the working rules.
 
@@ -48,6 +48,8 @@ On every push to `main`, the "Check site" workflow runs all the checks and, if t
 - [ ] Access to the GoDaddy account for jdeengineering.com (domain move)
 
 ## Go-live checklist
+
+- [ ] JDE creates a free Web3Forms account with info@jdeengineering.com and sends the access key; put it in `business.formKeys.client`, then send a real test enquiry from a phone
 
 - [ ] Copy the domain's Microsoft 365 email records (MX, SPF/TXT, autodiscover, DKIM) into Cloudflare DNS before switching nameservers away from GoDaddy
 - [ ] Add jdeengineering.com and www to the Worker; redirect www to the bare domain

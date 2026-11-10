@@ -22,6 +22,7 @@ describe("security headers", () => {
   it("allows every outside service the site uses", () => {
     // Fonts and Cloudflare Web Analytics. Add new services here and in the CSP.
     for (const host of [
+      "https://api.web3forms.com",
       "https://fonts.googleapis.com",
       "https://fonts.gstatic.com",
       "https://static.cloudflareinsights.com",

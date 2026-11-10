@@ -48,7 +48,7 @@ function ServicePage() {
               <p key={p}>{p}</p>
             ))}
             <div className="pt-4">
-              <Link to="/contact" className="btn btn-navy">
+              <Link to="/contact" hash="enquiry" className="btn btn-navy">
                 Discuss {s.short.toLowerCase()} <ArrowIcon className="h-4 w-4" />
               </Link>
             </div>

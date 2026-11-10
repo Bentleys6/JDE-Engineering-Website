@@ -19,6 +19,7 @@ function targets(): HTMLElement[] {
       const isGrid =
         /\bgrid\b/.test(child.className) &&
         child.children.length > 1 &&
+        child.tagName !== "FORM" &&
         !child.querySelector("form");
       if (isGrid) out.push(...([...child.children] as HTMLElement[]));
       else out.push(child);

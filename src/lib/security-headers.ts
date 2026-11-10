@@ -13,10 +13,10 @@ const csp = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data:",
-  "connect-src 'self' https://cloudflareinsights.com",
+  "connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
-  "form-action 'self'",
+  "form-action 'self' https://api.web3forms.com",
   "object-src 'none'",
   "upgrade-insecure-requests",
 ].join("; ");

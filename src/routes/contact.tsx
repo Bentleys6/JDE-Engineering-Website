@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { business, pageTitle, regions } from "@/data/business";
-import { PageHeader } from "@/components/site/Blocks";
+import { EnquirySection, PageHeader } from "@/components/site/Blocks";
 import { MailIcon } from "@/components/site/Icons";
 import { seo } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -23,42 +23,33 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const cards = [
-    {
-      label: "New business enquiries",
-      text: "Tell us about the project, site location, programme and the support you need.",
-      email: business.email,
-    },
-    {
-      label: "Careers",
-      text: "Send your CV and tell us about your experience and authorisations.",
-      email: business.careersEmail,
-    },
+  const emails = [
+    { label: "New business", email: business.email },
+    { label: "Careers and CVs", email: business.careersEmail },
   ];
   return (
     <>
       <PageHeader
         eyebrow="Contact"
         title="Get in touch"
-        intro="For new projects, resourcing and technical enquiries, email the team and we'll get back to you."
+        intro="For new projects, resourcing and technical enquiries, send us the details below or email the team."
       />
 
-      <section className="on-paper section-pad">
-        <div className="container-site grid gap-6 md:grid-cols-2">
-          {cards.map((c) => (
-            <div key={c.label} className="card-paper flex flex-col p-6 md:p-8">
-              <h2 className="eyebrow text-ink-muted">{c.label}</h2>
-              <p className="mt-4 flex-1 text-lg text-ink-muted">{c.text}</p>
+      <EnquirySection source="Contact page" eyebrow="Project enquiry">
+        <ul className="mt-8 space-y-5 border-t border-border pt-6">
+          {emails.map((e) => (
+            <li key={e.label}>
+              <span className="block text-sm text-ink-muted">{e.label}</span>
               <a
-                href={`mailto:${c.email}`}
-                className="mt-6 inline-flex items-center gap-3 break-all font-heading text-xl font-medium text-ink hover:underline md:text-2xl"
+                href={`mailto:${e.email}`}
+                className="mt-1 inline-flex items-center gap-2.5 break-all text-lg font-medium text-ink hover:underline"
               >
-                <MailIcon className="h-6 w-6 shrink-0" /> {c.email}
+                <MailIcon className="h-5 w-5 shrink-0" /> {e.email}
               </a>
-            </div>
+            </li>
           ))}
-        </div>
-      </section>
+        </ul>
+      </EnquirySection>
 
       <section className="section-pad">
         <div className="container-site grid gap-10 md:grid-cols-2">
