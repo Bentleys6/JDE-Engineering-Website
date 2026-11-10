@@ -5,6 +5,7 @@ import { images } from "@/data/images";
 import { services } from "@/data/services";
 import { caseStudies } from "@/data/content";
 import { team } from "@/data/team";
+import { serviceFaqs } from "@/data/faqs";
 
 const publicDir = path.resolve(__dirname, "../../public");
 const fileFor = (src: string) => path.join(publicDir, src.replace(/^\//, ""));
@@ -45,5 +46,12 @@ describe("site content", () => {
   it("case studies only reference real services", () => {
     const slugs = new Set(services.map((s) => s.slug));
     for (const c of caseStudies) for (const s of c.services) expect(slugs.has(s), s).toBe(true);
+  });
+
+  it("every service has FAQs, and FAQs only belong to real services", () => {
+    const slugs = services.map((s) => s.slug);
+    for (const slug of slugs)
+      expect(serviceFaqs[slug]?.length ?? 0, slug).toBeGreaterThanOrEqual(3);
+    for (const key of Object.keys(serviceFaqs)) expect(slugs).toContain(key);
   });
 });

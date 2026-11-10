@@ -47,6 +47,18 @@ On every push to `main`, the "Check site" workflow runs all the checks and, if t
 - [ ] LinkedIn company page URL and Google Business Profile
 - [ ] Access to the GoDaddy account for jdeengineering.com (domain move)
 
+## FAQ questions for Josh
+
+The service FAQs (`src/data/faqs.ts`) explain industry terms. These JDE-specific ones need Josh's answers before they can be added:
+
+- How do you select and vet authorised persons and engineers? What checks and qualifications do you require?
+- Do you work on live and partially energised sites? Live data centres?
+- How quickly can you mobilise people to site, in the UK and in Europe?
+- Do your people follow the client's or the principal contractor's safety rules, or bring JDE's own?
+- What is your safety record, and can it be published?
+- Can you supply personnel only, or a managed team, or both?
+- What size of projects do you typically support?
+
 ## Go-live checklist
 
 - [ ] JDE creates a free Web3Forms account with info@jdeengineering.com and sends the access key; put it in `business.formKeys.client`, then send a real test enquiry from a phone
