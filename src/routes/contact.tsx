@@ -63,11 +63,11 @@ function ContactPage() {
       <section className="section-pad">
         <div className="container-site grid gap-10 md:grid-cols-2">
           <div>
-            <h2 className="eyebrow text-accent">Where we work</h2>
+            <h2 className="eyebrow text-cyan">Where we work</h2>
             <p className="mt-4 text-lg text-on-navy-muted">{regions.join(" · ")}</p>
           </div>
           <div>
-            <h2 className="eyebrow text-accent">Company details</h2>
+            <h2 className="eyebrow text-cyan">Company details</h2>
             <p className="mt-4 text-lg text-on-navy-muted">
               {business.legalName}
               <br />

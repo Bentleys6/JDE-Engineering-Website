@@ -20,7 +20,7 @@ function NotFoundComponent() {
   return (
     <section className="hero-glow">
       <div className="container-site flex min-h-[60vh] flex-col items-start justify-center py-20">
-        <p className="eyebrow text-accent">Error 404</p>
+        <p className="eyebrow text-cyan">Error 404</p>
         <h1 className="mt-4 text-4xl md:text-6xl">Sorry, that page doesn't exist.</h1>
         <p className="mt-5 text-lg text-on-navy-muted">
           Head back to the homepage, or email{" "}
@@ -105,12 +105,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap",
-      },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(organisation) },
@@ -154,7 +148,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <a
         href="#main"
-        className="visually-hidden focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-accent focus:px-4 focus:py-2 focus:text-navy"
+        className="visually-hidden focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-cyan focus:px-4 focus:py-2 focus:text-navy"
       >
         Skip to content
       </a>

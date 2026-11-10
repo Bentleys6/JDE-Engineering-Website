@@ -25,7 +25,7 @@ function Home() {
       <section className="hero-glow border-b border-line">
         <div className="container-site grid gap-12 pb-16 pt-14 md:pb-24 md:pt-24 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-16">
           <div>
-            <p className="eyebrow text-accent">Specialist engineering consultancy</p>
+            <p className="eyebrow text-cyan">Specialist engineering consultancy</p>
             <h1 className="mt-5 text-[2.25rem] md:text-[3.5rem]">
               Commissioning and electrical safety for mission&#8209;critical infrastructure
             </h1>
@@ -56,7 +56,7 @@ function Home() {
                     params={{ slug: s.slug }}
                     className="group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-white/5"
                   >
-                    <span className="text-sm font-medium tabular-nums text-accent">{pad(i)}</span>
+                    <span className="text-sm font-medium tabular-nums text-cyan">{pad(i)}</span>
                     <span className="flex-1 font-medium">{s.short}</span>
                     <ArrowIcon className="h-4 w-4 text-on-navy-muted transition-transform group-hover:translate-x-1 group-hover:text-white" />
                   </Link>
@@ -119,7 +119,7 @@ function Home() {
           <ol className="mt-12 grid gap-4 md:grid-cols-5">
             {lifecycle.map((l) => (
               <li key={l.step} className="card-navy p-6">
-                <span className="text-sm font-medium tabular-nums text-accent">{l.step}</span>
+                <span className="text-sm font-medium tabular-nums text-cyan">{l.step}</span>
                 <h3 className="mt-4 text-lg">{l.title}</h3>
                 <p className="mt-2 text-[0.95rem] text-on-navy-muted">{l.text}</p>
               </li>
@@ -143,7 +143,7 @@ function Home() {
                 key={r}
                 className="flex items-center gap-3 border-b border-border py-4 font-heading text-lg font-medium sm:odd:pr-6"
               >
-                <span className="h-2 w-2 bg-accent" aria-hidden="true" />
+                <span className="h-2 w-2 bg-cyan" aria-hidden="true" />
                 {r}
               </li>
             ))}

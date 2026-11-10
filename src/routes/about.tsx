@@ -51,7 +51,7 @@ function AboutPage() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
               <div key={v.title} className="card-navy p-6 md:p-7">
-                <span className="text-sm font-medium tabular-nums text-accent">
+                <span className="text-sm font-medium tabular-nums text-cyan">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 text-xl">{v.title}</h3>

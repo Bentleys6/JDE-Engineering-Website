@@ -10,8 +10,8 @@ const csp = [
   "default-src 'self'",
   // 'unsafe-inline' is needed for the small inline scripts TanStack Start adds to each page.
   "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' https://fonts.gstatic.com",
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self'",
   "img-src 'self' data:",
   "connect-src 'self' https://cloudflareinsights.com",
   "frame-ancestors 'none'",

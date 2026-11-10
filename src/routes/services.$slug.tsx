@@ -80,7 +80,7 @@ function ServicePage() {
 
       <section className="section-pad">
         <div className="container-site">
-          <h2 className="eyebrow text-accent">Other services</h2>
+          <h2 className="eyebrow text-cyan">Other services</h2>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {others.map((o) => (
               <li key={o.slug} className="card-navy overflow-hidden">

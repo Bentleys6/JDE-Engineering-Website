@@ -18,7 +18,7 @@ export function PageHeader({
   return (
     <section className="hero-glow border-b border-line">
       <div className="container-site pb-16 pt-14 md:pb-24 md:pt-24">
-        <p className="eyebrow text-accent">{eyebrow}</p>
+        <p className="eyebrow text-cyan">{eyebrow}</p>
         <h1 className="mt-5 max-w-4xl text-[2.4rem] md:text-6xl">{title}</h1>
         {intro && <p className="mt-6 max-w-2xl text-lg text-on-navy-muted md:text-xl">{intro}</p>}
         {children}
@@ -42,7 +42,7 @@ export function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className={`eyebrow ${light ? "text-ink-muted" : "text-accent"}`}>{label}</p>
+      <p className={`eyebrow ${light ? "text-ink-muted" : "text-cyan"}`}>{label}</p>
       <h2 className="mt-4 text-3xl md:text-[2.75rem]">{title}</h2>
       {intro && (
         <p className={`mt-5 text-lg ${light ? "text-ink-muted" : "text-on-navy-muted"}`}>{intro}</p>

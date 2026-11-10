@@ -1,26 +1,54 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
 
 /*
  * JDE Engineering design system.
  * Deep midnight navy, white, and one accent (the logo's cyan #1CB5E0) used sparingly for
  * small details. Depth comes from soft tonal glows within the navy, never a navy-to-light-blue fade.
- * Geist (Google Fonts, SIL Open Font License) for everything.
+ * Geist (SIL Open Font License, self-hosted via @fontsource-variable/geist) for everything.
+ *
+ * shadcn/ui: its components read the standard tokens (--background, --primary, --card,
+ * --accent, ...), mapped below to the JDE navy palette so they match the site.
+ * In shadcn, "accent" is a subtle hover background; JDE's cyan is --cyan.
  */
 
 @theme inline {
-  --font-heading: "Geist", system-ui, sans-serif;
-  --font-sans: "Geist", system-ui, sans-serif;
+  --font-heading: "Geist Variable", system-ui, sans-serif;
+  --font-sans: "Geist Variable", system-ui, sans-serif;
   --radius-sm: 6px;
   --radius-md: 10px;
-  --color-background: var(--paper);
-  --color-foreground: var(--ink);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  /* shadcn/ui tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* JDE tokens */
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-navy-raised: var(--navy-raised);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
+  --color-cyan: var(--cyan);
+  --color-cyan-hover: var(--cyan-hover);
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
@@ -39,8 +67,8 @@
   --navy-raised: #0c1233;
   /* The glow colour in hero gradients. */
   --navy-glow: #15215e;
-  --accent: #1cb5e0;
-  --accent-hover: #4cc6e8;
+  --cyan: #1cb5e0;
+  --cyan-hover: #4cc6e8;
   --paper: #f4f5f8;
   --ink: #0a0f2c;
   --ink-muted: #474d6b;
@@ -49,6 +77,26 @@
   /* Hairlines: --border on paper, --line on navy. */
   --border: #dfe1ea;
   --line: rgb(255 255 255 / 0.09);
+
+  /* shadcn/ui tokens, mapped to the JDE navy palette (the site is dark throughout). */
+  --radius: 0.625rem;
+  --background: var(--navy);
+  --foreground: #ffffff;
+  --card: var(--navy-raised);
+  --card-foreground: #ffffff;
+  --popover: var(--navy-raised);
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: var(--ink);
+  --secondary: var(--navy-raised);
+  --secondary-foreground: #ffffff;
+  --muted: var(--navy-raised);
+  --muted-foreground: var(--on-navy-muted);
+  --accent: rgb(255 255 255 / 0.06);
+  --accent-foreground: #ffffff;
+  --destructive: #f87171;
+  --input: rgb(255 255 255 / 0.15);
+  --ring: var(--cyan);
 }
 
 @layer base {
@@ -82,7 +130,7 @@
     scroll-margin-top: 96px;
   }
   ::selection {
-    background: var(--accent);
+    background: var(--cyan);
     color: var(--navy);
   }
 }
@@ -137,7 +185,7 @@
     border-color 200ms;
   cursor: pointer;
   &:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--cyan);
     outline-offset: 3px;
   }
 }
