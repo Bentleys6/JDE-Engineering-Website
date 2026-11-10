@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { business } from "@/data/business";
 import { ArrowIcon, MailIcon } from "./Icons";
 import { EnquiryForm } from "./EnquiryForm";
+import { PhoneLink } from "./PhoneLink";
 import { enquiry } from "@/data/enquiry";
 
 /** Navy page header for inner pages: breadcrumb label, title and intro. No photo by design. */
@@ -102,7 +103,13 @@ export function EnquirySection({
           <p className="mt-5 text-lg text-ink-muted">{enquiry.intro}</p>
           {children ?? (
             <p className="mt-6 text-[0.97rem] text-ink-muted">
-              Prefer email?{" "}
+              {business.phoneTel && (
+                <>
+                  Prefer to talk? Call {business.phoneContact.split(",")[0]} on{" "}
+                  <PhoneLink className="link-underline whitespace-nowrap text-ink" />, or email{" "}
+                </>
+              )}
+              {!business.phoneTel && "Prefer email? "}
               <a href={`mailto:${business.email}`} className="link-underline text-ink">
                 {business.email}
               </a>

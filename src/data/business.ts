@@ -18,9 +18,10 @@ export const business = {
   email: "info@jdeengineering.com",
   // Job applications go here (confirmed by JDE).
   careersEmail: "cv@jdeengineering.com",
-  // Not confirmed for public use yet; hidden while empty.
-  phoneDisplay: "",
-  phoneTel: "",
+  // Josh Holland's mobile (CEO), added at the agency's request. Shown with his name.
+  phoneDisplay: "+44 7490 932 862",
+  phoneTel: "+447490932862",
+  phoneContact: "Josh Holland, CEO",
   social: {
     linkedin: "",
   },

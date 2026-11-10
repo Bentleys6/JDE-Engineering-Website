@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { business, pageTitle, regions } from "@/data/business";
 import { EnquirySection, PageHeader } from "@/components/site/Blocks";
-import { MailIcon } from "@/components/site/Icons";
+import { MailIcon, PhoneIcon } from "@/components/site/Icons";
+import { PhoneLink } from "@/components/site/PhoneLink";
 import { seo } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -37,6 +38,14 @@ function ContactPage() {
 
       <EnquirySection source="Contact page" eyebrow="Project enquiry">
         <ul className="mt-8 space-y-5 border-t border-border pt-6">
+          {business.phoneTel && (
+            <li>
+              <span className="block text-sm text-ink-muted">Call {business.phoneContact}</span>
+              <PhoneLink className="mt-1 inline-flex items-center gap-2.5 text-lg font-medium text-ink hover:underline">
+                <PhoneIcon className="h-5 w-5 shrink-0" /> {business.phoneDisplay}
+              </PhoneLink>
+            </li>
+          )}
           {emails.map((e) => (
             <li key={e.label}>
               <span className="block text-sm text-ink-muted">{e.label}</span>

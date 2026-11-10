@@ -24,8 +24,9 @@ function Privacy() {
             <p>
               {business.legalName}, registered in England and Wales (company no.{" "}
               {business.companyNumber}), registered office {business.registeredOffice}. Contact:{" "}
-              {business.email}. We are responsible for personal data sent to us through this
-              website.
+              {business.email}
+              {business.phoneTel && ` or ${business.phoneDisplay}`}. We are responsible for personal
+              data sent to us through this website.
             </p>
           </div>
           <div>

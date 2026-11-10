@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { business } from "@/data/business";
 import { services } from "@/data/services";
 import { images } from "@/data/images";
-import { ChevronIcon, CloseIcon, MailIcon, MenuIcon } from "./Icons";
+import { ChevronIcon, CloseIcon, MailIcon, MenuIcon, PhoneIcon } from "./Icons";
+import { PhoneLink } from "./PhoneLink";
 import { setupScrollReveal } from "@/lib/reveal";
 import { captureLeadSource } from "@/lib/lead-source";
 
@@ -179,6 +180,14 @@ export function Footer() {
         <div>
           <h2 className="eyebrow mb-5 text-white">Contact</h2>
           <ul className="space-y-3 text-[0.95rem]">
+            {business.phoneTel && (
+              <li>
+                <span className="block text-sm text-on-navy-muted">{business.phoneContact}</span>
+                <PhoneLink className="inline-flex items-center gap-2 text-white hover:underline">
+                  <PhoneIcon className="h-4 w-4 shrink-0" /> {business.phoneDisplay}
+                </PhoneLink>
+              </li>
+            )}
             <li>
               <span className="block text-sm text-on-navy-muted">New business</span>
               <a
