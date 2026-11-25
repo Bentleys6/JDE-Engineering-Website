@@ -4,6 +4,24 @@
  * show an honest "ask us" message instead of invented examples.
  */
 
+/**
+ * Key facts strip on the homepage. Only confirmed facts: incorporation year from Companies House
+ * (9 Oct 2019, as JHolland Electrical Services Ltd, renamed 2023), the service list and regions
+ * from JDE's brief. Swap in real figures (projects, people, MW) once Josh confirms them.
+ */
+export const keyFacts = [
+  { value: "2019", label: "Established" },
+  { value: "8", label: "Specialist service areas" },
+  { value: "L1–L3 + IST", label: "Commissioning support, plus Integrated Systems Testing" },
+  { value: "UK & EU", label: "Delivery across six countries and the wider EU" },
+];
+
+/** Statement band on the homepage, from JDE's own description of its focus. */
+export const statement = {
+  lines: ["Installed safely.", "Commissioned correctly.", "Handed over fully operational."],
+  caption: "The standard we hold every project to.",
+};
+
 /** Values for the About page. Draft wording, to be confirmed by JDE. */
 export const values = [
   {

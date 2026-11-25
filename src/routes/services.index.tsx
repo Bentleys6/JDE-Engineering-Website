@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { services } from "@/data/services";
 import { business } from "@/data/business";
 import { ContactBand, PageHeader } from "@/components/site/Blocks";
-import { ArrowIcon } from "@/components/site/Icons";
+import { ArrowIcon, ServiceIcon } from "@/components/site/Icons";
 import { seo } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageTitle } from "@/data/business";
@@ -31,15 +31,15 @@ function ServicesPage() {
 
       <section className="on-paper">
         <div className="container-site py-6 md:py-10">
-          {services.map((s, i) => (
+          {services.map((s) => (
             <article
               key={s.slug}
               id={s.slug}
               className="grid gap-6 border-b border-border py-12 last:border-b-0 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:py-16"
             >
               <div>
-                <span className="text-sm font-medium tabular-nums text-ink-muted">
-                  {String(i + 1).padStart(2, "0")}
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-accent">
+                  <ServiceIcon slug={s.slug} className="h-[22px] w-[22px]" />
                 </span>
                 <h2 className="mt-3 text-3xl md:text-4xl">{s.name}</h2>
                 <p className="mt-4 text-lg text-ink-muted">{s.summary}</p>

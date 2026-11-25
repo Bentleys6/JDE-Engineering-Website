@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { business, internationalDelivery, regions, sectors } from "@/data/business";
 import { services } from "@/data/services";
-import { lifecycle } from "@/data/content";
+import { keyFacts, lifecycle, statement } from "@/data/content";
 import { EnquirySection, SectionHeading } from "@/components/site/Blocks";
-import { ArrowIcon } from "@/components/site/Icons";
+import { ArrowIcon, ServiceIcon } from "@/components/site/Icons";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -15,8 +15,6 @@ export const Route = createFileRoute("/")({
     ),
   component: Home,
 });
-
-const pad = (n: number) => String(n + 1).padStart(2, "0");
 
 function Home() {
   return (
@@ -49,14 +47,14 @@ function Home() {
               Capabilities
             </p>
             <ol>
-              {services.map((s, i) => (
+              {services.map((s) => (
                 <li key={s.slug} className="border-b border-line last:border-b-0">
                   <Link
                     to="/services/$slug"
                     params={{ slug: s.slug }}
                     className="group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-white/5"
                   >
-                    <span className="text-sm font-medium tabular-nums text-accent">{pad(i)}</span>
+                    <ServiceIcon slug={s.slug} className="h-5 w-5 shrink-0 text-accent" />
                     <span className="flex-1 font-medium">{s.short}</span>
                     <ArrowIcon className="h-4 w-4 text-on-navy-muted transition-transform group-hover:translate-x-1 group-hover:text-white" />
                   </Link>
@@ -64,6 +62,24 @@ function Home() {
               ))}
             </ol>
           </div>
+        </div>
+
+        {/* Key facts: part of the hero, same background, one hairline above. */}
+        <div className="container-site">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line py-10 md:py-12 lg:grid-cols-4">
+            {keyFacts.map((k) => (
+              <div
+                key={k.label}
+                className="lg:border-l lg:border-line lg:pl-8 lg:first:border-l-0 lg:first:pl-0"
+              >
+                <dt className="sr-only">{k.label}</dt>
+                <dd className="text-4xl font-medium tracking-tight text-white md:text-5xl">
+                  {k.value}
+                </dd>
+                <dd className="mt-2 max-w-[16rem] text-[0.95rem] text-on-navy-muted">{k.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -89,14 +105,16 @@ function Home() {
             intro="Eight service areas, delivered on their own or as one team across the life of a project."
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s, i) => (
+            {services.map((s) => (
               <Link
                 key={s.slug}
                 to="/services/$slug"
                 params={{ slug: s.slug }}
                 className="card-paper group flex flex-col p-6 transition-shadow hover:shadow-[0_12px_32px_-16px_rgb(10_15_44/0.35)] md:p-7"
               >
-                <span className="text-sm font-medium tabular-nums text-ink-muted">{pad(i)}</span>
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-accent">
+                  <ServiceIcon slug={s.slug} className="h-[22px] w-[22px]" />
+                </span>
                 <h3 className="mt-6 text-xl">{s.name}</h3>
                 <p className="mt-3 flex-1 text-[0.97rem] text-ink-muted">{s.summary}</p>
                 <span className="link-arrow mt-6 text-[0.95rem]">
@@ -105,6 +123,25 @@ function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Statement */}
+      <section className="hero-brand border-b border-line">
+        <div className="container-site py-20 md:py-32">
+          <p className="max-w-5xl text-[2.25rem] font-medium leading-[1.08] tracking-[-0.03em] md:text-[4.5rem]">
+            {statement.lines.map((l, i) => (
+              <span
+                key={l}
+                className={`block ${i === statement.lines.length - 1 ? "text-white" : "text-white/45"}`}
+              >
+                {l}
+              </span>
+            ))}
+          </p>
+          <p className="mt-8 flex items-center gap-3 text-on-navy-muted">
+            <span className="h-px w-10 bg-accent" aria-hidden="true" /> {statement.caption}
+          </p>
         </div>
       </section>
 
