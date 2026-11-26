@@ -14,7 +14,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
@@ -44,11 +43,6 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ThankYouRoute = ThankYouRouteImport.update({
   id: '/thank-you',
   path: '/thank-you',
@@ -71,7 +65,6 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/projects': typeof ProjectsRoute
   '/thank-you': typeof ThankYouRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -82,7 +75,6 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/projects': typeof ProjectsRoute
   '/thank-you': typeof ThankYouRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
@@ -94,7 +86,6 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/projects': typeof ProjectsRoute
   '/thank-you': typeof ThankYouRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -107,7 +98,6 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/privacy-policy'
-    | '/projects'
     | '/thank-you'
     | '/services/$slug'
     | '/services/'
@@ -118,7 +108,6 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/privacy-policy'
-    | '/projects'
     | '/thank-you'
     | '/services/$slug'
     | '/services'
@@ -129,7 +118,6 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/privacy-policy'
-    | '/projects'
     | '/thank-you'
     | '/services/$slug'
     | '/services/'
@@ -141,7 +129,6 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
-  ProjectsRoute: typeof ProjectsRoute
   ThankYouRoute: typeof ThankYouRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -184,13 +171,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/thank-you': {
       id: '/thank-you'
       path: '/thank-you'
@@ -221,7 +201,6 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
-  ProjectsRoute: ProjectsRoute,
   ThankYouRoute: ThankYouRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,

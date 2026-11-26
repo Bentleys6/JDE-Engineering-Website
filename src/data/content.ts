@@ -75,6 +75,8 @@ export const lifecycle = [
  * Case studies. Kept anonymous by design: describe the site by type, country and a site code
  * (e.g. "LON-01"), never the client's or operator's name, unless the client has agreed in writing.
  * Leave the list empty until JDE supplies real projects.
+ * The Projects page was removed on 26 Nov 2026 at the agency's request; this data is kept so
+ * the page can return (restore src/routes/projects.tsx from git history, the nav link and sitemap entry).
  */
 export type CaseStudy = {
   slug: string;

@@ -14,7 +14,6 @@ describe("App routing", () => {
     "/about",
     "/services",
     ...services.map((s) => `/services/${s.slug}`),
-    "/projects",
     "/careers",
     "/contact",
     "/privacy-policy",

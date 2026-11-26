@@ -11,7 +11,6 @@ import { captureLeadSource } from "@/lib/lead-source";
 const nav = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/projects", label: "Projects" },
   { to: "/careers", label: "Careers" },
 ] as const;
 

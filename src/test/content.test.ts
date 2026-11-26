@@ -29,7 +29,6 @@ describe("site content", () => {
   it("lists every page in the sitemap", () => {
     const sitemap = readFileSync(path.join(publicDir, "sitemap.xml"), "utf8");
     for (const p of [
-      "/projects",
       "/careers",
       "/privacy-policy",
       ...services.map((s) => `/services/${s.slug}`),
