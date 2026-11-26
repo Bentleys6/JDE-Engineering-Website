@@ -62,7 +62,7 @@ function AboutPage() {
                 <span className="text-sm font-medium tabular-nums text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-5 text-xl">{v.title}</h3>
+                <h3 className="mt-5 text-xl sm:min-h-[2lh] xl:min-h-0">{v.title}</h3>
                 <p className="mt-3 text-[0.97rem] text-on-navy-muted">{v.text}</p>
               </div>
             ))}
@@ -74,7 +74,7 @@ function AboutPage() {
       <section id="team" className="on-paper section-pad">
         <div className="container-site">
           <SectionHeading light label="People" title="Leadership team" />
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {team.map((m) => (
               <li key={m.name} className="card-paper overflow-hidden">
                 {m.photo ? (

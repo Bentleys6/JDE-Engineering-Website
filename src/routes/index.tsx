@@ -67,14 +67,14 @@ function Home() {
 
         {/* Key facts: part of the hero, same background, one hairline above. */}
         <div className="container-site">
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line py-10 md:py-12 lg:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line py-10 md:py-12 xl:grid-cols-4">
             {keyFacts.map((k) => (
               <div
                 key={k.label}
-                className="lg:border-l lg:border-line lg:pl-8 lg:first:border-l-0 lg:first:pl-0"
+                className="xl:border-l xl:border-line xl:pl-8 xl:first:border-l-0 xl:first:pl-0"
               >
                 <dt className="sr-only">{k.label}</dt>
-                <dd className="text-4xl font-medium tracking-tight text-white md:text-5xl">
+                <dd className="whitespace-nowrap text-[1.75rem] font-medium tracking-tight text-white sm:text-4xl md:text-5xl">
                   {k.value}
                 </dd>
                 <dd className="mt-2 max-w-[16rem] text-[0.95rem] text-on-navy-muted">{k.label}</dd>
@@ -105,7 +105,7 @@ function Home() {
             title="From strategy to handover"
             intro="Eight service areas, delivered on their own or as one team across the life of a project."
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {services.map((s) => (
               <Link
                 key={s.slug}
@@ -116,7 +116,7 @@ function Home() {
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-accent">
                   <ServiceIcon slug={s.slug} className="h-[22px] w-[22px]" />
                 </span>
-                <h3 className="mt-6 text-xl">{s.name}</h3>
+                <h3 className="mt-6 text-xl sm:min-h-[2lh]">{s.name}</h3>
                 <p className="mt-3 flex-1 text-[0.97rem] text-ink-muted">{s.summary}</p>
                 <span className="link-arrow mt-6 text-[0.95rem]">
                   View service <ArrowIcon className="h-4 w-4" />
@@ -161,11 +161,11 @@ function Home() {
             title="One partner across the project lifecycle"
             intro="JDE can join at any stage, or carry a project from early strategy through to final acceptance."
           />
-          <ol className="mt-12 grid gap-4 md:grid-cols-5">
+          <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {lifecycle.map((l) => (
               <li key={l.step} className="card-navy p-6">
                 <span className="text-sm font-medium tabular-nums text-accent">{l.step}</span>
-                <h3 className="mt-4 text-lg">{l.title}</h3>
+                <h3 className="mt-4 text-lg sm:min-h-[2lh]">{l.title}</h3>
                 <p className="mt-2 text-[0.95rem] text-on-navy-muted">{l.text}</p>
               </li>
             ))}

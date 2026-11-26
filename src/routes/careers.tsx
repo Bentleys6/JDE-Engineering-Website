@@ -92,8 +92,8 @@ function CareersPage() {
               "Include your current authorisations, qualifications and certificates, and the countries you can work in.",
               "We'll be in touch if your experience matches a current or upcoming project.",
             ].map((t, i) => (
-              <li key={t} className="flex gap-5 border-b border-line pb-6">
-                <span className="text-sm font-medium tabular-nums text-accent">
+              <li key={t} className="flex items-baseline gap-5 border-b border-line pb-6">
+                <span className="w-6 shrink-0 text-sm font-medium tabular-nums text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-lg">{t}</span>
