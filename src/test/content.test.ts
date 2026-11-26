@@ -14,6 +14,9 @@ describe("site content", () => {
   it("every image file referenced in images.ts exists", () => {
     for (const [key, img] of Object.entries(images)) {
       expect(existsSync(fileFor(img.src)), `${key}: ${img.src}`).toBe(true);
+      if ("srcSet" in img)
+        for (const f of img.srcSet.split(",").map((x) => x.trim().split(" ")[0]!))
+          expect(existsSync(fileFor(f)), `${key}: ${f}`).toBe(true);
       expect(img.alt.length, key).toBeGreaterThan(10);
     }
     for (const m of team) if (m.photo) expect(existsSync(fileFor(m.photo)), m.name).toBe(true);

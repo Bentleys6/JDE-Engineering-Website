@@ -4,6 +4,7 @@ import { pageTitle } from "@/data/business";
 import { ContactBand, PageHeader } from "@/components/site/Blocks";
 import { ArrowIcon, CheckIcon, ChevronIcon } from "@/components/site/Icons";
 import { seo } from "@/lib/seo";
+import { Img } from "@/components/site/Img";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { faqsFor } from "@/data/faqs";
 
@@ -58,6 +59,13 @@ function ServicePage() {
                 Discuss {s.short.toLowerCase()} <ArrowIcon className="h-4 w-4" />
               </Link>
             </div>
+            {s.image && (
+              <Img
+                name={s.image}
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="mt-6 aspect-[4/5] w-full rounded-[10px] object-cover lg:aspect-[4/4.4]"
+              />
+            )}
           </div>
           <div>
             <h2 className="eyebrow text-ink-muted">{s.listTitle}</h2>

@@ -3,6 +3,8 @@
  * /services/<slug>. The item lists are word for word from the brief; the summaries and
  * intros describe what each service is, without claims JDE hasn't confirmed.
  */
+import type { ImageKey } from "@/data/images";
+
 export type ServiceItem = { name: string; text?: string };
 
 export type Service = {
@@ -19,6 +21,8 @@ export type Service = {
   items: ServiceItem[];
   /** Optional note under the list (e.g. standards). */
   note?: string;
+  /** Optional site photo (key in images.ts), shown under the intro. */
+  image?: ImageKey;
 };
 
 export const services: Service[] = [
@@ -52,6 +56,7 @@ export const services: Service[] = [
       "JDE sets up, runs and audits electrical safe systems of work, including acting as the Client Electrical Safety Representative and managing the permit office.",
     ],
     listTitle: "ESSoW services",
+    image: "lotoStation",
     items: [
       { name: "Client Electrical Safety Representative (CESR)" },
       { name: "Electrical Safe System of Work Management" },
@@ -73,6 +78,7 @@ export const services: Service[] = [
       "Safe switching and controlled access to electrical systems depend on appointed, competent people. JDE provides experienced personnel to fill these safety-critical roles on your project.",
     ],
     listTitle: "Personnel we provide",
+    image: "hvSwitchingPortrait",
     items: [
       { name: "Senior Authorised Persons (SAP)" },
       { name: "High Voltage Authorised Persons (HVAP)" },

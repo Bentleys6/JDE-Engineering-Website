@@ -4,6 +4,7 @@ import { values } from "@/data/content";
 import { initials, team } from "@/data/team";
 import { ContactBand, PageHeader, SectionHeading } from "@/components/site/Blocks";
 import { seo } from "@/lib/seo";
+import { Img } from "@/components/site/Img";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/about")({
@@ -35,7 +36,14 @@ function AboutPage() {
       {/* Story */}
       <section className="on-paper section-pad">
         <div className="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <SectionHeading light label="Who we are" title="Our story" />
+          <div>
+            <SectionHeading light label="Who we are" title="Our story" />
+            <Img
+              name="permitOffice"
+              sizes="(min-width: 1024px) 440px, 100vw"
+              className="mt-10 aspect-[4/3] w-full rounded-[10px] object-cover"
+            />
+          </div>
           <div className="space-y-5 text-lg text-ink-muted">
             <p className="text-xl text-ink">{business.summary}</p>
             <p>{business.focus}</p>

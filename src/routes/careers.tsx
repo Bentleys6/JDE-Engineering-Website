@@ -4,6 +4,7 @@ import { jobRoles } from "@/data/content";
 import { PageHeader, SectionHeading } from "@/components/site/Blocks";
 import { MailIcon } from "@/components/site/Icons";
 import { seo } from "@/lib/seo";
+import { Img } from "@/components/site/Img";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/careers")({
@@ -77,7 +78,14 @@ function CareersPage() {
 
       <section className="section-pad">
         <div className="container-site grid gap-10 lg:grid-cols-2 lg:gap-20">
-          <SectionHeading label="How to apply" title="Applying to JDE" />
+          <div>
+            <SectionHeading label="How to apply" title="Applying to JDE" />
+            <Img
+              name="arcFlashTeam"
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="mt-10 aspect-[4/5] w-full max-w-md rounded-[10px] border border-line object-cover"
+            />
+          </div>
           <ol className="space-y-6">
             {[
               `Email your CV to ${business.careersEmail}, with the role in the subject line if you're applying for an advertised vacancy.`,

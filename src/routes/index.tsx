@@ -5,6 +5,7 @@ import { keyFacts, lifecycle, statement } from "@/data/content";
 import { EnquirySection, SectionHeading } from "@/components/site/Blocks";
 import { ArrowIcon, ServiceIcon } from "@/components/site/Icons";
 import { seo } from "@/lib/seo";
+import { Img } from "@/components/site/Img";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -126,22 +127,29 @@ function Home() {
         </div>
       </section>
 
-      {/* Statement */}
+      {/* Statement, beside a photo of JDE's own team at work */}
       <section className="hero-brand border-b border-line">
-        <div className="container-site py-20 md:py-32">
-          <p className="max-w-5xl text-[2.25rem] font-medium leading-[1.08] tracking-[-0.03em] md:text-[4.5rem]">
-            {statement.lines.map((l, i) => (
-              <span
-                key={l}
-                className={`block ${i === statement.lines.length - 1 ? "text-white" : "text-white/45"}`}
-              >
-                {l}
-              </span>
-            ))}
-          </p>
-          <p className="mt-8 flex items-center gap-3 text-on-navy-muted">
-            <span className="h-px w-10 bg-accent" aria-hidden="true" /> {statement.caption}
-          </p>
+        <div className="container-site grid items-center gap-12 py-20 md:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div>
+            <p className="text-[2.25rem] font-medium leading-[1.08] tracking-[-0.03em] md:text-[3.75rem]">
+              {statement.lines.map((l, i) => (
+                <span
+                  key={l}
+                  className={`block ${i === statement.lines.length - 1 ? "text-white" : "text-white/45"}`}
+                >
+                  {l}
+                </span>
+              ))}
+            </p>
+            <p className="mt-8 flex items-center gap-3 text-on-navy-muted">
+              <span className="h-px w-10 bg-accent" aria-hidden="true" /> {statement.caption}
+            </p>
+          </div>
+          <Img
+            name="hvSwitching"
+            sizes="(min-width: 1024px) 560px, 100vw"
+            className="aspect-[4/3] w-full rounded-[10px] border border-line object-cover"
+          />
         </div>
       </section>
 
