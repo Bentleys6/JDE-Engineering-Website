@@ -35,19 +35,20 @@ function AboutPage() {
 
       {/* Story */}
       <section className="on-paper section-pad">
-        <div className="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <div>
-            <SectionHeading light label="Who we are" title="Our story" />
+        <div className="container-site">
+          <SectionHeading light label="Who we are" title="Our story" />
+          {/* Photo and text start on the same line. */}
+          <div className="mt-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-20">
             <Img
               name="permitOffice"
               sizes="(min-width: 1024px) 440px, 100vw"
-              className="mt-10 aspect-[4/3] w-full rounded-[10px] object-cover"
+              className="aspect-[4/3] w-full rounded-[10px] object-cover"
             />
-          </div>
-          <div className="space-y-5 text-lg text-ink-muted">
-            <p className="text-xl text-ink">{business.summary}</p>
-            <p>{business.focus}</p>
-            <p>Our authorised persons operate in accordance with {listText(standards)}.</p>
+            <div className="space-y-5 text-lg text-ink-muted lg:-mt-1.5">
+              <p className="text-xl text-ink">{business.summary}</p>
+              <p>{business.focus}</p>
+              <p>Our authorised persons operate in accordance with {listText(standards)}.</p>
+            </div>
           </div>
         </div>
       </section>

@@ -77,29 +77,30 @@ function CareersPage() {
       </section>
 
       <section className="section-pad">
-        <div className="container-site grid gap-10 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <SectionHeading label="How to apply" title="Applying to JDE" />
+        <div className="container-site">
+          <SectionHeading label="How to apply" title="Applying to JDE" />
+          {/* Photo and steps start on the same line. */}
+          <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-20">
             <Img
               name="arcFlashTeam"
               sizes="(min-width: 1024px) 560px, 100vw"
-              className="mt-10 aspect-[4/5] w-full max-w-md rounded-[10px] border border-line object-cover"
+              className="aspect-[4/5] w-full max-w-md rounded-[10px] border border-line object-cover"
             />
+            <ol className="space-y-6 lg:-mt-1.5">
+              {[
+                `Email your CV to ${business.careersEmail}, with the role in the subject line if you're applying for an advertised vacancy.`,
+                "Include your current authorisations, qualifications and certificates, and the countries you can work in.",
+                "We'll be in touch if your experience matches a current or upcoming project.",
+              ].map((t, i) => (
+                <li key={t} className="flex items-baseline gap-5 border-b border-line pb-6">
+                  <span className="w-6 shrink-0 text-sm font-medium tabular-nums text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-lg">{t}</span>
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol className="space-y-6">
-            {[
-              `Email your CV to ${business.careersEmail}, with the role in the subject line if you're applying for an advertised vacancy.`,
-              "Include your current authorisations, qualifications and certificates, and the countries you can work in.",
-              "We'll be in touch if your experience matches a current or upcoming project.",
-            ].map((t, i) => (
-              <li key={t} className="flex items-baseline gap-5 border-b border-line pb-6">
-                <span className="w-6 shrink-0 text-sm font-medium tabular-nums text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-lg">{t}</span>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
     </>
